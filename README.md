@@ -47,20 +47,12 @@ Features
 TESTED
 -----
 
-Not Working in Backdrop 1.0
-
+Simple Working in Backdrop 1.0 -- needs more testing with real accounts and copious content
 
 KNOWN ISSUES
 ---------------------
 
 None critical for Backdrop yet.
-
-Basic Cart for Drupal stored node objects in the user $_SESSION variable and used pre-made Views, Features, etc...
-The Backdrop port failed with this error because of it:
-Fatal error: Call to undefined function module_implements() in /Applications/MAMP/htdocs/backdrop/core/includes/bootstrap.inc on line 3467
-This happens when you add a product to the cart.
-
-Basic Cart for Backdrop stores node id's as strings in the user $_SESSION variable and no pre-made etc...
 
 REQUIREMENTS
 ------------
@@ -97,20 +89,6 @@ USAGE
 -----
 
 @todo
-
-You will need to install the Libraries API module.
-
-https://drupal.org/project/libraries
-
-The Disqus Official PHP API can be downloaded at:
-
-https://github.com/disqus/disqus-php
-
-Copy the contents of the disqusapi folder to sites/all/libraries/disqusapi.
-You will need to obtain your user access key from the application specific
-page found here:
-
-http://disqus.com/api/applications/
 
 License
 -------
