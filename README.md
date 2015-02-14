@@ -1,78 +1,139 @@
-Disqus Module
-=====================
+DISQUS
+===========
 
-Disqus module for Drupal 8. Disqus is a popular 3rd party commenting system for websites and online communities.
+CONTENTS OF THIS FILE
+---------------------
 
-+ For a full description visit the project page: http://drupal.org/project/project
-+ Bug reports, feature suggestions and latest developments: http://drupal.org/project/issues/disqus
+ - Introduction
+ - Requirements
+ - Installation
+ - Permissions
+ - Usage
+ - Sponsors
 
-Installation
-----------
-1. Download and enable the module.
-2. Register your websites shortname on [Disqus.com][1]
-3. In the Disqus configuration, set the shortname to what you registered with Disqus.
-4. Disqus comments can be enabled for any entity sub-type (for example, a content type). On the Manage fields page for each entity sub-type, you can enable disqus by adding a Disqus comments field.
-5. Alternatively disqus comments can be used on Blocks. You will first need to configure the disqus comment field for any entity sub-type.
-6. Visit the permissions, and set which users you would like to have the ability to view Disqus threads (recommended for role).
+INTRODUCTION
+------------
 
-Additional Requirements
---------
-For using the [Disqus API][2] to communicate with the Disqus data you will need to download the Disqus API bindings.
-Disqus module uses the api for updating/deleting disqus threads on updation/deletion of entities on your Drupal site. Also for migration of comments from a Drupal site to Disqus and vice-versa requires the Disqus API bindings.
+DISQUS is a comments platform that helps you build an active community from your website's audience. It has awesome features, powerful tools, and it's easy to install.
 
-Follow the steps below to download the Disqus API bindings:
+Display recent comments, popular threads, and other widgets in blocks
+Provide comments on any node type or user
+Views 2/3 integration (number of comments)
+Single Sign-On
 
-1. You will need to install the [Composer Manager][3] module. Also make sure you have drush installed ([Drush][4] is a command-line shell and scripting interface for Drupal)
-2. Obtain your `user access key` from the application specific page http://disqus.com/api/applications/
-3. Now run the following commands from within your Drupal root directory to download the DisqusAPI bindings:
+Threaded comments and replies
+Notifications and reply by email
+Subscribe and RSS options
+Aggregated comments and social mentions
+Powerful moderation and admin tools
+Full spam filtering, blacklists and whitelists
+Support for Disqus community widgets
+Connected with a large discussion community
+Increased exposure and readership
 
-```
-  // Rebuild the composer.json file with updated dependencies
-  $ drush composer-json-rebuild
-  // Install the required packages
-  $ drush composer-manager install
-```
-Built-in Features
+This module can automatically update and/or delete your Disqus threads when you
+delete/update your nodes.
+
+Visit Disqus configuration page after you installed Disqus API to configure it's
+behaviour.
+
+Features
+
+* The possibility of choosing the content types that can be added to the cart.
+* The possibility of sending, or not, an email to the customer once an order is placed.
+* Custom email messages for both the site administrator and the customer, along with the order details.
+* A block with the contents of your shopping cart.
+
+TESTED
+-----
+
+Not Working in Backdrop 1.0
+
+
+KNOWN ISSUES
+---------------------
+
+None critical for Backdrop yet.
+
+Basic Cart for Drupal stored node objects in the user $_SESSION variable and used pre-made Views, Features, etc...
+The Backdrop port failed with this error because of it:
+Fatal error: Call to undefined function module_implements() in /Applications/MAMP/htdocs/backdrop/core/includes/bootstrap.inc on line 3467
+This happens when you add a product to the cart.
+
+Basic Cart for Backdrop stores node id's as strings in the user $_SESSION variable and no pre-made etc...
+
+REQUIREMENTS
+------------
+
+@todo
+
+INSTALLATION
+------------
+
+@todo
+
+Scott from Level Up Tuts put together a great tutorial on how to install Disqus on Drupal 7. He walks you through these steps:
+
+<http://www.youtube.com/watch?feature=player_embedded&v=QAdjQaq9jxo>
+
+Download and install the Disqus module into your respective sites directory (sites/all/modules).
+Enable the module in admin/build/modules
+Register your site at Disqus.com
+Visit admin/settings/disqus and set your configuration options depending on what you registered with on Disqus, as well as what node types you'd like Disqus comments to be present on.
+Enable the "view disqus comments" permission at admin/user/access or admin/user/permission for users you'd like to see the comments
+Visit admin/build/block to show some Disqus information in the block regions
+Disable Drupal commenting on the content types for which you have Disqus enabled. This will prevent Drupal comments from being open on new posts.
+(optional) Disable permissions for site visitors to use Drupal comments. This is recommended if you are replacing all new comments on your site with the Disqus system. Otherwise, comments will remain open on your existing content
+(optional) Install the Global Redirect module to enable URL Alias redirects with links from Disqus
+
+Because the libraries module/concept is not yet set or taught, the actual Braintree code library is packaged with this module until a 3rd-party code library is agreed upon in Backdrop.
+
+PERMISSIONS
+------------
+
+@todo
+
+USAGE
+-----
+
+@todo
+
+You will need to install the Libraries API module.
+
+https://drupal.org/project/libraries
+
+The Disqus Official PHP API can be downloaded at:
+
+https://github.com/disqus/disqus-php
+
+Copy the contents of the disqusapi folder to sites/all/libraries/disqusapi.
+You will need to obtain your user access key from the application specific
+page found here:
+
+http://disqus.com/api/applications/
+
+License
 -------
-- This module automatically updates and/or delete your Disqus threads when you delete/update the entities for which disqus field is enabled.
-- Visit Disqus configuration page after you have installed [Disqus API][5] to  configure it's behaviour.
 
-> **Note:** Using this feature also requires the `public_key` or`secret_key`
+This project is GPL v2 software. See the LICENSE.txt file in this directory for
+complete text.
 
-####Examples
-You can find the API reference here : http://disqus.com/api/docs/
-Any of these methods can be called by creating an instance of the Disqus API
-through `disqus_api()`. You must use `try`/`catch` to avoid php throwing a general exception and stopping script execution.
+Maintainers
+-----------
+Sponsors include Disqus, ImageX Media, AETN, Acquia and Examiner.com.
 
-For a full explanation of the official API you can view the readme located here:
+Current Maintainers on Drupal:
 
-https://github.com/disqus/disqus-php/blob/master/README.rst
+JayeshSolanki <https://www.drupal.org/u/jayeshsolanki>
 
-**Example**: Calling `threads->details` and `threads->update`
-```php
-  $disqus = disqus_api();
-  if ($disqus) {
-    try {
-      // Load the thread data from disqus. Passing thread is required to allow the thread:ident call to work correctly. There is a pull request to fix this issue.
-      $thread = $disqus->threads->details(array('forum' => $config->get('disqus_domain'), 'thread:ident' => "{$entity->getEntityTypeId()}/{$entity->id()}", 'thread' => '1'));
-    }
-    catch (Exception $exception) {
-      drupal_set_message(t('There was an error loading the thread details from Disqus.'), 'error');
-      \Drupal::logger('disqus')->error('Error loading thread details for entity : !identifier. Check your API keys.', array('!identifier' => "{$entity->getEntityTypeId()}/{$entity->id()}"));
-    }
-    if (isset($thread->id)) {
-      try {
-        $disqus->threads->update(array('access_token' => $config->get('advanced.disqus_useraccesstoken'), 'thread' => $thread->id, 'forum' => $config->get('disqus_domain'), 'title' => $entity->label(), 'url' => $entity->url('canonical',array('absolute' => TRUE))));
-      }
-      catch (Exception $exception) {
-        drupal_set_message(t('There was an error updating the thread details on Disqus.'), 'error');
-        \Drupal::logger('disqus')->error('Error updating thread details for entity : !identifier. Check your user access token.', array('!identifier' => "{$entity->getEntityTypeId()}/{$entity->id()}"));
-      }
-    }
-  }
-```
-  [1]: disqus.com
-  [2]: https://disqus.com/api/docs/
-  [3]: https://www.drupal.org/project/composer_manager
-  [4]: https://github.com/drush-ops/drush
-  [5]: #additional-requirements
+slashrsm <https://www.drupal.org/u/slashrsm>
+
+marcingy <https://www.drupal.org/u/marcingy>
+
+RobLoach <https://www.drupal.org/u/robloach>
+
+bkosborne <https://www.drupal.org/u/bkosborne>
+
+Ported to Backdrop by:
+
+ - biolithic <https://github.com/biolithic>
