@@ -69,16 +69,24 @@ Scott from Level Up Tuts put together a great tutorial on how to install Disqus 
 <http://www.youtube.com/watch?feature=player_embedded&v=QAdjQaq9jxo>
 
 Download and install the Disqus module into your respective sites directory (sites/all/modules).
+
 Enable the module in admin/build/modules
+
 Register your site at Disqus.com
+
 Visit admin/settings/disqus and set your configuration options depending on what you registered with on Disqus, as well as what node types you'd like Disqus comments to be present on.
+
 Enable the "view disqus comments" permission at admin/user/access or admin/user/permission for users you'd like to see the comments
+
 Visit admin/build/block to show some Disqus information in the block regions
-Disable Drupal commenting on the content types for which you have Disqus enabled. This will prevent Drupal comments from being open on new posts.
-(optional) Disable permissions for site visitors to use Drupal comments. This is recommended if you are replacing all new comments on your site with the Disqus system. Otherwise, comments will remain open on your existing content
+
+Disable Backdrop commenting on the content types for which you have Disqus enabled. This will prevent Backdrop comments from being open on new posts.
+
+(optional) Disable permissions for site visitors to use Backdrop comments. This is recommended if you are replacing all new comments on your site with the Disqus system. Otherwise, comments will remain open on your existing content
+
 (optional) Install the Global Redirect module to enable URL Alias redirects with links from Disqus
 
-Because the libraries module/concept is not yet set or taught, the actual Braintree code library is packaged with this module until a 3rd-party code library is agreed upon in Backdrop.
+Because the libraries module/concept is not yet set or taught, the actual Disqus code library is packaged with this module until a 3rd-party code library is agreed upon in Backdrop.
 
 PERMISSIONS
 ------------
