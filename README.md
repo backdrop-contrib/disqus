@@ -1,31 +1,13 @@
 DISQUS
 ===================
 
-CONTENTS OF THIS FILE
----------------------
-
- - Introduction
- - Tested
- - Known Issues
- - Special Thanks
- - Requirements
- - Installation
- - Coming From Drupal?
- - Usage
- - License
- - Credits
- - Maintainers
-
-INTRODUCTION
-------------
-
 DISQUS is a third-party comments platform that helps you build an active community from your website's audience. It has awesome features, powerful tools, and it's easy to install.
 
 Display recent comments, popular threads, and other widgets in blocks
 
 Provide comments on any node type or user
 
-Views 2/3 integration (number of comments)
+Views integration (number of comments)
 
 Single Sign-On ability for your users
 
@@ -53,6 +35,20 @@ delete/update your nodes.
 Visit Disqus configuration page after you installed Disqus API to configure it's
 behaviour.
 
+CONTENTS OF THIS FILE
+---------------------
+
+ - Introduction
+ - Tested
+ - Known Issues
+ - Special Thanks
+ - Requirements
+ - Installation
+ - Coming From Drupal?
+ - Usage
+ - License
+ - Credits
+ - Maintainers
 
 TESTED
 -----
